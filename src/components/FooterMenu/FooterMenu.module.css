@@ -1,0 +1,8 @@
+
+
+.FooterMenu {
+    a:link, a:visited, a:hover, a:active {
+        color: var(--color-primary-2);
+        text-decoration: none;
+    }
+}

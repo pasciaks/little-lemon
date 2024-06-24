@@ -1,10 +1,20 @@
+import React from "react";
 import "./App.css";
+
+import { Footer } from "./components/Footer";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Homepage</h1>
-    </div>
+    <React.Fragment className="App">
+      <header>
+        <nav>
+          <NavBar></NavBar>
+        </nav>
+      </header>
+      <main></main>
+      <Footer></Footer>
+    </React.Fragment>
   );
 }
 
