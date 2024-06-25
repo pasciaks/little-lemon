@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./FooterMenu.module.css";
+import { Link } from "react-router-dom";
 
 const FooterMenu = () => (
   <div className={styles.FooterMenu}>
     <p>Menu</p>
-    <ul>
+    {/* <ul>
       <li>
         <a href="/">Home</a>
       </li>
@@ -19,6 +20,23 @@ const FooterMenu = () => (
       </li>
       <li>
         <a href="/order">Order</a>
+      </li>
+    </ul> */}
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/menu">Menu</Link>
+      </li>
+      <li>
+        <Link to="/reservations">Reservations</Link>
+      </li>
+      <li>
+        <Link to="/order">Order</Link>
       </li>
     </ul>
   </div>

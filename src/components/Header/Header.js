@@ -1,15 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Header.module.css';
+import React from "react";
+import NavBar from "../NavBar/NavBar";
 
-const Header = () => (
-  <div className={styles.Header}>
-    Header Component
-  </div>
-);
-
-Header.propTypes = {};
-
-Header.defaultProps = {};
+const Header = () => {
+  return (
+    <React.Fragment>
+      <nav className="mx-2">
+        <NavBar />
+      </nav>
+    </React.Fragment>
+  );
+};
 
 export default Header;

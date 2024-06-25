@@ -1,0 +1,64 @@
+/** Variable Declarations */
+
+:root {
+  /** Colors */
+  --color-primary: #495e57;
+  --color-primary-2: #f4ce14;
+  --color-secondary: #ee9972;
+  --color-secondary-2: #fbdabb;
+  --color-off-white: #edefee;
+  --color-white: #ffffff;
+  --color-black: #333333;
+  --color-black-full: #000000;
+  --color-alert-success: #68f276;
+  --color-alert-error: #ff3333;
+
+  /** Fonts */
+
+  /** Responsive-Height */
+  --min-height-header: 80px;
+  --min-height-footer: 80px;
+
+  /** Responsive-Width **/
+  --header-switch: 768px;
+
+  --img-border-color-test: red;
+
+  /** Box Shadow */
+  --box-shadow-0: 0 10px 15px -3px rgb(210 210 210 / 0.5),
+  0 4px 6px -4px rgb(250 0 0 / 0.75);
+  --box-shadow-1: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --box-shadow-2: -10px 20px 25px -5px rgb(0 0 0 / 0.1),
+    10px 8px 10px -6px rgb(0 0 0 / 0.1);
+  --box-shadow-3: 0px -10px 10px -3px rgb(50 50 50 / 0.15);
+}
+
+a:hover {
+  box-shadow: var(--box-shadow-1);
+  border-radius: 5%;
+}
+
+a:active {
+  box-shadow: var(--box-shadow-0);
+}
+
+/** Animations **/
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,12 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './About.module.css';
+import React from "react";
+import styles from "./About.module.css";
 
-const About = () => (
-  <div className={styles.About}>
-    About Component
-  </div>
-);
+const About = () => <div className={styles.About}>About Component</div>;
 
 About.propTypes = {};
 

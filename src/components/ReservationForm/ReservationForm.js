@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './ReservationForm.module.css';
+import React from "react";
+import styles from "./ReservationForm.module.css";
 
 const ReservationForm = () => (
   <div className={styles.ReservationForm}>
-    ReservationForm Component
+    <section className="container">
+      <p>Reservation Form</p>
+    </section>
   </div>
 );
 

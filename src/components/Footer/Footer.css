@@ -6,7 +6,7 @@ footer {
   gap: 20px;
   padding: 2.25rem  !important;
   min-height: 60px;
-  background-color: gray;
+  background-color: var(--color-primary);
   flex-wrap: wrap;
   box-shadow: 0px -10px 10px -3px rgb(50 50 50 / 0.15);
   
@@ -14,6 +14,14 @@ footer {
 
 footer section {
   margin: 0px 10px;
+}
+
+.box-shadow {
+  box-shadow: var(--box-shadow-0);
+}
+
+.box-shadow:hover {
+  box-shadow: var(--box-shadow-1);
 }
 
 
