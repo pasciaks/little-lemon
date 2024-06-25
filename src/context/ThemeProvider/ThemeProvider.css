@@ -1,6 +1,6 @@
 /** Variable Declarations */
 
-:root {
+* {
   /** Colors */
   --color-primary: #495e57;
   --color-primary-2: #f4ce14;
@@ -61,4 +61,22 @@ a:active {
   100% {
     opacity: 1;
   }
+}
+
+h1 {
+  color: var(--color-primary-2) !important;
+  font-family: 'Markazi Text', serif;
+}
+
+h2 {
+  font-family: 'Karla', sans-serif;
+}
+
+p, ul, li {
+  font-family: 'Karla', sans-serif !important;
+}
+
+a {
+  font-family: 'Karla', sans-serif !important;
+  text-decoration: underline !important;
 }

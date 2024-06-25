@@ -5,7 +5,7 @@ import "./Reservation.css";
 
 const Reservation = () => (
   <div className="Reservation">
-    <p>Reservations</p>
+    <h1>Reservations</h1>
     <ReservationForm />
   </div>
 );

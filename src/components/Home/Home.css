@@ -1,1 +1,29 @@
-.Home {}
+
+
+.image-container {
+    text-align: center; 
+ }
+
+ .image {
+    max-width: 80%;
+    margin: 25px;
+ }
+
+ .info {
+    background-color: var(--color-primary-2) !important;
+ }
+
+ .info2 {
+    margin: 0 25px;
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+ }
+
+ .info2 p {
+    color: black;
+ }
+ 
+ section 
+ {
+    margin: 10px;
+ }

@@ -15,6 +15,10 @@ import Footer from "./components/Footer/Footer";
 import Reservation from "./components/Reservation/Reservation";
 import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
+import Menu from "./components/Menu/Menu";
+import Order from "./components/Order/Order";
+import Cart from "./components/Cart/Cart";
+import Profile from "./components/Profile/Profile";
 
 import "./App.css";
 
@@ -48,6 +52,10 @@ const router = createBrowserRouter(
       <Route path="home" element={<Home />}></Route>
       <Route path="reservations" element={<Reservation />} />
       <Route path="about" element={<About />} />
+      <Route path="menu" element={<Menu />} />
+      <Route path="profile" element={<Profile />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="order-online" element={<Order />} />
       <Route path="*" element={<Error />} />
     </Route>
   )

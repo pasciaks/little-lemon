@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-/* :root {
-  height: 100vh;
-} */
-
 html,
 body {
   margin: 0;
@@ -19,7 +15,7 @@ body {
 }
 
 * {
-  font-family: 'Markazi Text', serif;
+  font-family: 'Karla', sans-serif;
 }
 
 body {
