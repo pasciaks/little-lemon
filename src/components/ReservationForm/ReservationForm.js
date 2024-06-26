@@ -42,6 +42,13 @@ const ReservationForm = (props) => {
     setIsConfirmed(true);
   };
 
+  function getNextDay() {
+    const today = new Date();
+    const nextDay = new Date(today);
+    nextDay.setDate(today.getDate());
+    return nextDay.toISOString().split("T")[0];
+  }
+
   const setTheTime = (time) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -73,7 +80,54 @@ const ReservationForm = (props) => {
           <form onSubmit={handleSubmit}>
             <div className="form-control">
               <label>
-                Number of Guests:
+                First Name:{" "}
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>
+                Last Name:{" "}
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+            </div>
+
+            <div className="form-control">
+              <label>
+                Email:{" "}
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+
+              <label>
+                Phone:{" "}
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+            </div>
+
+            <div className="form-control">
+              <label>
+                Number of Guests:{" "}
                 <input
                   type="number"
                   name="numberOfGuests"
@@ -87,46 +141,8 @@ const ReservationForm = (props) => {
               </label>
             </div>
             <div className="form-control">
-              <label>
-                Date:
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-            <div className="form-control">
-              <h2>Available Times</h2>
-              {availableTimes.map((time) => (
-                <span className="time" key={time}>
-                  <span
-                    className="clickableTime"
-                    onClick={() => {
-                      setTheTime(time);
-                    }}
-                  >
-                    {time}
-                  </span>
-                </span>
-              ))}
-              <br></br>
-              <label>
-                Time:
-                <input
-                  type="time"
-                  name="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-            <div className="form-control">
               <fieldset>
-                <legend>Seating Preference:</legend>
+                <h3>Seating Preference: </h3>
                 <label>
                   Indoor
                   <input
@@ -149,9 +165,60 @@ const ReservationForm = (props) => {
                 </label>
               </fieldset>
             </div>
+            {/* <div className="form-control">
+              <label>
+                Date:
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+            </div> */}
+            <div className="form-control">
+              <h3>Available Times</h3>
+              {availableTimes.map((time) => (
+                <span className="time" key={time}>
+                  <span
+                    className="clickableTime"
+                    onClick={() => {
+                      setTheTime(time);
+                    }}
+                  >
+                    {time}
+                  </span>
+                </span>
+              ))}
+              <br></br>
+              <label>
+                Date:{" "}
+                <input
+                  min={getNextDay()}
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>
+                Time:{" "}
+                <input
+                  disabled
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+            </div>
+
             <div className="form-control">
               <label>
-                Special Occasion:
+                Special Occasion:{" "}
                 <select
                   name="specialOccasion"
                   value={formData.specialOccasion}
@@ -166,56 +233,10 @@ const ReservationForm = (props) => {
                 </select>
               </label>
             </div>
-            <div className="form-control">
-              <label>
-                First Name:
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>
-                Last Name:
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-
-            <div className="form-control">
-              <label>
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-
-              <label>
-                Phone:
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
 
             <div className="form-control">
               <button className="btn btn-secondary" type="submit">
-                Submit
+                Create Reservation
               </button>
             </div>
           </form>
