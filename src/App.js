@@ -45,6 +45,25 @@ const Root = () => {
 //   )
 // );
 
+// const removeTime = (time, date) => {
+//   const index = availableTimes.indexOf(time);
+//   availableTimes.splice(index, 1);
+// };
+
+// let availableTimes = [
+//   "17:00",
+//   "17:30",
+//   "18:00",
+//   "18:30",
+//   "19:00",
+//   "19:30",
+//   "20:00",
+//   "20:30",
+//   "21:00",
+//   "21:30",
+//   "22:00",
+// ];
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>

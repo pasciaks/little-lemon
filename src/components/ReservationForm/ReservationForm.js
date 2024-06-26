@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./ReservationForm.css";
+
 const ReservationForm = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
+
   const [formData, setFormData] = useState({
     numberOfGuests: "1",
     date: "",
@@ -18,10 +20,36 @@ const ReservationForm = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "date" && value) {
+      console.log("use fetchAPI here");
+      console.log(value);
+      props.setDate(new Date(value));
+    }
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const submitAPI = function (formData) {
+    let doesAlreadyExist = localStorage.getItem(
+      "reservation-" + formData.date + "-" + formData.time
+    );
+
+    if (doesAlreadyExist) {
+      console.log("reservation already exists");
+      alert(
+        "Your reservation could not be completed, there is a stored reservation for this date / time. Please select a different time."
+      );
+      return false;
+    }
+
+    console.log("reservation-" + formData.date + "-" + formData.time);
+    localStorage.setItem(
+      "reservation-" + formData.date + "-" + formData.time,
+      JSON.stringify(formData)
+    );
+    return true;
   };
 
   const handleSubmit = (e) => {
@@ -29,14 +57,25 @@ const ReservationForm = (props) => {
     // Handle form submission logic here
     console.log(formData); // Replace with your logic
 
+    let canSubmit = submitAPI(formData);
+
+    if (!canSubmit) {
+      if (window.confirm("Would you like to clear the stored reservations?")) {
+        localStorage.clear();
+      }
+      return;
+    }
+
     if (props.availableTimes.includes(formData.time)) {
       console.log("Time is available");
-      props.removeTime(formData.time);
+      props.removeTime(formData.time, formData.date);
+      //alert("Your reservation was completed");
     } else {
       console.log("Time is not available");
       alert(
-        "You were supposed to select one of the available times, but for ease of grading we'll let you reserve anyway!"
+        "Your reservation could not be completed. The selected time is no longer available. Please select a different time."
       );
+      return;
     }
 
     setIsConfirmed(true);
@@ -45,16 +84,9 @@ const ReservationForm = (props) => {
   function getNextDay() {
     const today = new Date();
     const nextDay = new Date(today);
-    nextDay.setDate(today.getDate());
+    nextDay.setDate(today.getDate() + 1);
     return nextDay.toISOString().split("T")[0];
   }
-
-  const setTheTime = (time) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      time: time,
-    }));
-  };
 
   return (
     <>
@@ -74,6 +106,40 @@ const ReservationForm = (props) => {
               <p>Phone: {formData.phone}</p>
             </div>
           </div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Number of Guests</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Seating Preference</th>
+                <th>Special Occasion</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Guests: {formData.numberOfGuests}</td>
+                <td>Date: {formData.date}</td>
+                <td>Time: {formData.time}</td>
+                <td>Seating Preference: {formData.seatingPreference}</td>
+                <td>Special Occasion: {formData.specialOccasion}</td>
+                <td>First Name: {formData.firstName}</td>
+                <td>Last Name: {formData.lastName}</td>
+                <td>Email: {formData.email}</td>
+                <td>Phone: {formData.phone}</td>
+              </tr>
+            </tbody>
+          </table>
+          After the booking, here are the remaining Available Times:
+          {props.availableTimes.map((time) => (
+            <span className="time" key={time}>
+              <span className="clickableTime">{time}</span>
+            </span>
+          ))}
         </>
       ) : (
         <section className="ReservationForm">
@@ -100,7 +166,6 @@ const ReservationForm = (props) => {
                 />
               </label>
             </div>
-
             <div className="form-control">
               <label>
                 Email:{" "}
@@ -112,7 +177,6 @@ const ReservationForm = (props) => {
                   required
                 />
               </label>
-
               <label>
                 Phone:{" "}
                 <input
@@ -124,7 +188,6 @@ const ReservationForm = (props) => {
                 />
               </label>
             </div>
-
             <div className="form-control">
               <label>
                 Number of Guests:{" "}
@@ -178,7 +241,7 @@ const ReservationForm = (props) => {
               </label>
             </div> */}
             <div className="form-control">
-              <h3>Available Times</h3>
+              {/* <h3>Available Times</h3>
               {availableTimes.map((time) => (
                 <span className="time" key={time}>
                   <span
@@ -191,7 +254,7 @@ const ReservationForm = (props) => {
                   </span>
                 </span>
               ))}
-              <br></br>
+              <br></br> */}
               <label>
                 Date:{" "}
                 <input
@@ -205,17 +268,21 @@ const ReservationForm = (props) => {
               </label>
               <label>
                 Time:{" "}
-                <input
-                  disabled
-                  type="time"
+                <select
+                  required
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  required
-                />
+                >
+                  <option value="">Select</option>
+                  {availableTimes.map((time) => (
+                    <option key={time} value={time}>
+                      {time}
+                    </option>
+                  ))}
+                </select>
               </label>
             </div>
-
             <div className="form-control">
               <label>
                 Special Occasion:{" "}
@@ -233,7 +300,6 @@ const ReservationForm = (props) => {
                 </select>
               </label>
             </div>
-
             <div className="form-control">
               <button className="btn btn-secondary" type="submit">
                 Create Reservation
