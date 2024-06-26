@@ -12,8 +12,4 @@ const Cart = () => (
   </div>
 );
 
-Cart.propTypes = {};
-
-Cart.defaultProps = {};
-
 export default Cart;

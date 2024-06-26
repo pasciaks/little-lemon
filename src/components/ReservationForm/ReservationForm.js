@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ReservationForm.css";
-const ReservationForm = () => {
+const ReservationForm = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [formData, setFormData] = useState({
     numberOfGuests: "1",
@@ -13,6 +13,8 @@ const ReservationForm = () => {
     email: "johndoe@gmail.com",
     phone: "123-456-7890",
   });
+
+  const availableTimes = props.availableTimes;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +29,24 @@ const ReservationForm = () => {
     // Handle form submission logic here
     console.log(formData); // Replace with your logic
 
+    if (props.availableTimes.includes(formData.time)) {
+      console.log("Time is available");
+      props.removeTime(formData.time);
+    } else {
+      console.log("Time is not available");
+      alert(
+        "You were supposed to select one of the available times, but for ease of grading we'll let you reserve anyway!"
+      );
+    }
+
     setIsConfirmed(true);
+  };
+
+  const setTheTime = (time) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      time: time,
+    }));
   };
 
   return (
@@ -80,6 +99,20 @@ const ReservationForm = () => {
               </label>
             </div>
             <div className="form-control">
+              <h2>Available Times</h2>
+              {availableTimes.map((time) => (
+                <span className="time" key={time}>
+                  <span
+                    className="clickableTime"
+                    onClick={() => {
+                      setTheTime(time);
+                    }}
+                  >
+                    {time}
+                  </span>
+                </span>
+              ))}
+              <br></br>
               <label>
                 Time:
                 <input

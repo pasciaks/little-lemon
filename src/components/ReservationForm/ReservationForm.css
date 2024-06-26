@@ -9,6 +9,17 @@ label {
     font-weight: bold;
 }
 
+.time {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.clickableTime{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 label::before {
     content: " * ";
     color: red;

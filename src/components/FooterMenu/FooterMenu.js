@@ -36,14 +36,10 @@ const FooterMenu = () => (
         <Link to="/reservations">Reservations</Link>
       </li>
       <li>
-        <Link to="/order">Order</Link>
+        <Link to="/order-online">Order</Link>
       </li>
     </ul>
   </div>
 );
-
-FooterMenu.propTypes = {};
-
-FooterMenu.defaultProps = {};
 
 export default FooterMenu;

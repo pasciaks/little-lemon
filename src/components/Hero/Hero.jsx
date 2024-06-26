@@ -13,15 +13,13 @@ export const Hero = () => {
         <p className="subtitle s2">Chicago</p>
         <p className="s2" id="LL-Hero-desc">
           At Little Lemon, we bring you the vibrant flavors and warmth of the
-          Mediterranean right to your table. Located in the heart of Chicago,
-          our restaurant is a celebration of Mediterranean cuisine, known for
-          its fresh ingredients, bold flavors, and rich culinary traditions.
+          Mediterranean right to your table.
         </p>
         <button
-          ariaLabel="Reserve a Table"
+          aria-label="Reserve a Table"
           id="LL-Hero-btn"
-          primary
           onClick={() => navigate("/reservations")}
+          className="btn-primary-style"
         >
           Reserve a Table
         </button>

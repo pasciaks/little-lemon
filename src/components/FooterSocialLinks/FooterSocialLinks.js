@@ -44,10 +44,10 @@ const socialmedia = [
   },
 ];
 
-const FooterSocialLinks = () => (
+const FooterSocialLinks = (props) => (
   <ul className="FooterContactsListItems">
     {socialmedia.map((social) => (
-      <li role="button">
+      <li role="button" key={"li-" + social.id}>
         <a
           key={social.id}
           href={social.href}
@@ -61,9 +61,5 @@ const FooterSocialLinks = () => (
     ))}
   </ul>
 );
-
-FooterSocialLinks.propTypes = {};
-
-FooterSocialLinks.defaultProps = {};
 
 export default FooterSocialLinks;

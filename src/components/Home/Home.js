@@ -23,7 +23,7 @@ const Home = () => (
         <img
           src={"../../../images/mario-adrian-1.jpg"}
           alt="mario 1"
-          class="image image1"
+          className="image image1"
         />
       </div>
     </section>
@@ -36,8 +36,5 @@ const Home = () => (
     </section>
   </>
 );
-Home.propTypes = {};
-
-Home.defaultProps = {};
 
 export default Home;

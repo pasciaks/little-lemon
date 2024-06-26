@@ -12,8 +12,4 @@ const Order = () => (
   </div>
 );
 
-Order.propTypes = {};
-
-Order.defaultProps = {};
-
 export default Order;

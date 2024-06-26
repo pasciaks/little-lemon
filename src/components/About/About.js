@@ -41,8 +41,4 @@ const About = () => (
   </div>
 );
 
-About.propTypes = {};
-
-About.defaultProps = {};
-
 export default About;

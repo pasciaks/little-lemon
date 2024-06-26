@@ -11,8 +11,4 @@ const Testimonials = () => (
   </div>
 );
 
-Testimonials.propTypes = {};
-
-Testimonials.defaultProps = {};
-
 export default Testimonials;

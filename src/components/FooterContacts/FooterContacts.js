@@ -18,8 +18,4 @@ const FooterContacts = () => (
   </div>
 );
 
-FooterContacts.propTypes = {};
-
-FooterContacts.defaultProps = {};
-
 export default FooterContacts;

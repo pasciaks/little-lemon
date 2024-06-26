@@ -11,8 +11,4 @@ const Menu = () => (
   </div>
 );
 
-Menu.propTypes = {};
-
-Menu.defaultProps = {};
-
 export default Menu;
