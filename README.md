@@ -1,4 +1,40 @@
-# Getting Started with Create React App
+# Little Lemon
+
+# Grading Information
+
+Has the learner followed the design and implementation of the UX UI?
+
+- Yes, the details are individually captured below.
+
+Are there appropriate accessibility tags applied?
+
+- Yes, use of alt, aria-label, and role have been used.
+
+Does the web app contain unit tests?
+
+- Yes, unit tests for the form and functions are provided and tested green and are listed below.
+
+- Test Suites: 3 passed, 3 total
+- Tests: 5 passed, 5 total
+- Snapshots: 0 total
+- Time: 0.723 s, estimated 1 s
+- Ran all test suites.
+
+Is the booking form functional and applying validation?
+
+- Yes, local storage and form validation/inputs ensure only valid new reservations are accepted.
+
+Are the semantics and responsiveness of the web app correct?
+
+- Yes, nav, main and other semantic names are used as well as responsive design.
+
+Has the learner committed the project to a Git repository?
+
+- Yes, the committed code can be reached at https://github.com/pasciaks/little-lemon
+
+<hr>
+
+# Additional Information regarding REACT Apps
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
