@@ -1,5 +1,23 @@
 # Little Lemon
 
+# Screenshots that demonstrate project functionality and completeness
+
+## Home Desktop Size
+
+![Home Desktop Size](1.png)
+
+## Home Mobile Size
+
+![Home Mobile Size](2.png)
+
+## Reservation Form
+
+![Reservation Form](3.png)
+
+## Reservation Confirmation
+
+![Reservation Confirmation](4.png)
+
 # Grading Information
 
 Has the learner followed the design and implementation of the UX UI?
