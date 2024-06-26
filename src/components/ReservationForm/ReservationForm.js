@@ -21,7 +21,6 @@ const ReservationForm = (props) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "date" && value) {
-      console.log("use fetchAPI here");
       console.log(value);
       props.setDate(new Date(value));
     }
@@ -54,6 +53,20 @@ const ReservationForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // client side validation - also min date validation is added in the date input field
+    // client side validation - also number of guests is validated to be between 1 and 10 from form min and max
+
+    if (formData.date === "") {
+      alert("Please select a date");
+      return;
+    }
+
+    if (formData.time === "") {
+      alert("Please select a time");
+      return;
+    }
+
     // Handle form submission logic here
     console.log(formData); // Replace with your logic
 
@@ -143,7 +156,11 @@ const ReservationForm = (props) => {
         </>
       ) : (
         <section className="ReservationForm">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            aria-label="Reservation Form"
+            id="reservationForm"
+          >
             <div className="form-control">
               <label>
                 First Name:{" "}

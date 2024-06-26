@@ -14,7 +14,7 @@ const Reservation = (props) => {
 
   useEffect(() => {
     loadInitialState(date);
-  }, []);
+  }, [date]);
 
   console.log("availableTimes:", state.availableTimes);
 
