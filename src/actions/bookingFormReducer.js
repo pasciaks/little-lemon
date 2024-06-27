@@ -1,5 +1,7 @@
+let localAvailableTimes = ["17:00", "17:30", "18:00", "18:30"];
+
 export const loadInitialState = (date) => ({
-  availableTimes: fetchAPI(date),
+  availableTimes: localAvailableTimes,
 });
 
 const seededRandom = function (seed) {

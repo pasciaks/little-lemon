@@ -24,8 +24,9 @@ const Reservation = (props) => {
       console.log(availableTimes);
       dispatch({
         type: "setAvailableTimes",
-        payload: [...availableTimes],
+        payload: availableTimes,
       });
+      console.log(state.availableTimes);
     },
     [state.availableTimes]
   );

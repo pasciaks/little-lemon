@@ -19,6 +19,7 @@ import Menu from "./components/Menu/Menu";
 import Order from "./components/Order/Order";
 import Cart from "./components/Cart/Cart";
 import Profile from "./components/Profile/Profile";
+import Confirmation from "./components/Confirmation/Confirmation";
 
 import "./App.css";
 
@@ -70,6 +71,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="home" element={<Home />}></Route>
       <Route path="reservations" element={<Reservation />} />
+      <Route path="confirmation" element={<Confirmation />} />
       <Route path="about" element={<About />} />
       <Route path="menu" element={<Menu />} />
       <Route path="profile" element={<Profile />} />

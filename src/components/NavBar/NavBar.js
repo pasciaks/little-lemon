@@ -21,6 +21,7 @@ function NavBar() {
           <Nav.Link href="home">Home</Nav.Link>
           <Nav.Link href="about">About</Nav.Link>
           <Nav.Link href="menu">Menu</Nav.Link>
+          {/* <Link to="/reservations">Reservations</Link> */}
           <Nav.Link href="reservations">Reservations</Nav.Link>
           <Nav.Link href="order-online">Order Online</Nav.Link>
         </Nav>

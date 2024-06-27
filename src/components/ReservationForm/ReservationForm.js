@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./ReservationForm.css";
-
+import { useNavigate } from "react-router-dom";
 const ReservationForm = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     numberOfGuests: "1",
@@ -91,7 +92,9 @@ const ReservationForm = (props) => {
       return;
     }
 
-    setIsConfirmed(true);
+    navigate("/confirmation");
+
+    // setIsConfirmed(true);
   };
 
   function getNextDay() {
