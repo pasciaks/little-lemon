@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  Router,
   RouterProvider,
   Outlet,
 } from "react-router-dom";
@@ -65,8 +66,10 @@ const Root = () => {
 //   "22:00",
 // ];
 
+// package.json -   // "homepage": "https://pasciak.com/bootcamp/build",
 const router = createBrowserRouter(
   createRoutesFromElements(
+    // <Route basename="bootcamp/build/" path="/" element={<Root />}>
     <Route path="/" element={<Root />}>
       <Route index element={<Home />} />
       <Route path="home" element={<Home />}></Route>
